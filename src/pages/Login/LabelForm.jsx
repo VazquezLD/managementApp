@@ -5,10 +5,10 @@ const LabelStyled = styled.label`
     font-weight: 400;
 `
 
-export const LabelForm = ({label}) => {
+export const LabelForm = ({label, htmlFor}) => {
     return(
         <LabelStyled>
-            {label}
+            <LabelStyled htmlFor={htmlFor}>{label}</LabelStyled>
         </LabelStyled>
     )
 }

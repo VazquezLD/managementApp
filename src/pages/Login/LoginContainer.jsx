@@ -5,11 +5,13 @@ const LoginContainerStyled = styled.div`
     width: 60vw;
     height: 80vh;
     border: 1px solid #cccccc88;
+    padding: 10px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 20px;
+    box-shadow: 0px 0px 40px 1px #007bff55;
 `
 
 const AsideStyled = styled.div`

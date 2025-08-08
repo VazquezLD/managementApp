@@ -8,6 +8,7 @@ const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #d4e5f8cc;
 `;
 
 export const Login = () => {
