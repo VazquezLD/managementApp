@@ -40,7 +40,7 @@ export const LoginContainer = () => {
       <FormLogin/>
       <AsideStyled>
         <div>
-            <h3>Bienvenido a FLASHMIND.</h3>
+            <h3>Bienvenido a ManageMeant.</h3>
             <p> Por favor, inicie sesión para continuar.</p>
         </div>
       </AsideStyled>

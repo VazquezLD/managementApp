@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Navbar } from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 
 const LayoutWrapper = styled.div`
     width: 100vw;
@@ -7,21 +8,26 @@ const LayoutWrapper = styled.div`
     padding-top: 80px;
     box-sizing: border-box;
     background-color: #ffffff;
+    display: flex;
+    align-items: center;
     justify-content: center;
 `;
 
 const Content = styled.main`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 `;
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <>
       <Navbar />
       <LayoutWrapper>
-        <Content>{children}</Content>
+        <Content><Outlet/></Content>
       </LayoutWrapper>
     </>
   );

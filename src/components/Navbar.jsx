@@ -49,8 +49,8 @@ export const Navbar = () => {
         <NavbarStyled>
             <SpanStyled>Flashcards</SpanStyled>
             <UListStyled>
-                <li><StyledNavLink to="/">Home</StyledNavLink></li>
-                <li><StyledNavLink to="/flashcards">Flashcards</StyledNavLink></li>
+                <li><StyledNavLink to="/">Empleados</StyledNavLink></li>
+                <li><StyledNavLink to="/graficos">Graficos</StyledNavLink></li>
                 <li><StyledNavLink to="/profile">Perfil</StyledNavLink></li>
             </UListStyled>
         </NavbarStyled>
