@@ -21,6 +21,7 @@ const UListStyled = styled.ul`
     display: flex;
     width: 300px;
     justify-content: space-evenly;
+    margin-right: 100px;
 `
 
 const StyledNavLink = styled(NavLink)`
@@ -28,7 +29,7 @@ const StyledNavLink = styled(NavLink)`
     color: black;
     font-weight: 500;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
 
   &.active {
@@ -47,9 +48,11 @@ const SpanStyled = styled.span`
 export const Navbar = () => {
     return(
         <NavbarStyled>
-            <SpanStyled>Flashcards</SpanStyled>
+            <SpanStyled>Manage.meant</SpanStyled>
             <UListStyled>
-                <li><StyledNavLink to="/">Empleados</StyledNavLink></li>
+                <li><StyledNavLink to="/">Inicio</StyledNavLink></li>
+                <li><StyledNavLink to="/empleados">Empleados</StyledNavLink></li>
+                <li><StyledNavLink to="/servicios">Servicios</StyledNavLink></li>
                 <li><StyledNavLink to="/graficos">Graficos</StyledNavLink></li>
                 <li><StyledNavLink to="/profile">Perfil</StyledNavLink></li>
             </UListStyled>

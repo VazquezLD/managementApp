@@ -5,20 +5,22 @@ import { Outlet } from "react-router-dom";
 const LayoutWrapper = styled.div`
     width: 100vw;
     min-height: 100vh;
+    overflow-y: scroll;
     padding-top: 80px;
     box-sizing: border-box;
     background-color: #ffffff;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 `;
 
 const Content = styled.main`
-  height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin: 0;
 `;
 
