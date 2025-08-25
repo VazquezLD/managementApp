@@ -32,13 +32,11 @@ const DeleteButton = styled.button`
 
     &:hover {
         background: #d9363e;
-        transform: scale(1.02);
         box-shadow: 0 4px 12px rgba(255,77,79,0.25);
     }
 
     &:active {
         background: #b71c1c;
-        transform: scale(0.98);
     }
 `;
 
@@ -56,13 +54,11 @@ const EditButton = styled.button`
 
     &:hover {
         background: #40a9ff;
-        transform: scale(1.02);
         box-shadow: 0 4px 12px rgba(24,144,255,0.25);
     }
 
     &:active {
         background: #0050b3;
-        transform: scale(0.98);
     }
 `;
 

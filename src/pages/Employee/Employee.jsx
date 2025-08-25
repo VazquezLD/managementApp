@@ -7,7 +7,22 @@ const HomeStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
+`;
+
+const AddButton = styled.button`
+    border-radius: 4px;
+    color: white;
+    padding: 10px 5px;
+    background-color: #58d358;
+    border: 2px solid #3db93d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 60px;
+
+    &:hover{
+        background-color: #3db93d;  
+    }
 `;
 
 const NavbarFilterStyled = styled.div`
@@ -16,7 +31,7 @@ const NavbarFilterStyled = styled.div`
     margin-top: 10px;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between ;
     background-color: #f9f9f9;
 
     & ul{
@@ -40,7 +55,8 @@ const Employee = () => {
                     <li><span>Fecha de Ingreso</span></li>
                     <li><span>Estado</span></li>
                 </ul>
-                
+
+                <AddButton>Agregar Empleado</AddButton>
             </NavbarFilterStyled>
             <EmployeeGrid />
         </HomeStyled>
