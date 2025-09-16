@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { EmployeeGrid } from "./EmployeeGrid";
+import { useToggle, ToggleProvider } from "../../hooks/useToggle";
+import EmployeeForm from "./EmployeeForm";
 
 const HomeStyled = styled.div`
     width: 100%;
@@ -43,23 +45,31 @@ const NavbarFilterStyled = styled.div`
 
 `
 
-const Employee = () => {
+const EmployeeContent = () => {
+    const {open, openForm} = useToggle();
     return(
-        <HomeStyled>
+            <HomeStyled>
             <h1>Empleados</h1>
+            {open && <EmployeeForm/>}
             <NavbarFilterStyled>
                 <ul>
-                    <li><span>Nombre/Apellido</span></li>
-                    <li><span>Cargo</span></li>
+                    <li><span>Nombre/Apellido</span></li>       
                     <li><span>Salario</span></li>
                     <li><span>Fecha de Ingreso</span></li>
                     <li><span>Estado</span></li>
                 </ul>
-
-                <AddButton>Agregar Empleado</AddButton>
+                <AddButton onClick={openForm}>Agregar Empleado</AddButton>
             </NavbarFilterStyled>
             <EmployeeGrid />
         </HomeStyled>
+    )
+}
+
+const Employee = () => {
+    return(
+        <ToggleProvider>
+            <EmployeeContent/>
+        </ToggleProvider>
     )
 }
 

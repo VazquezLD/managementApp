@@ -40,7 +40,7 @@ const DeleteButton = styled.button`
     }
 `;
 
-const EditButton = styled.button`
+export const EditButton = styled.button`
     background: #1890ff;
     color: #fff;
     border: none;
@@ -51,6 +51,7 @@ const EditButton = styled.button`
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 6px rgba(24,144,255,0.15);
     height: 30px;
+    max-width: 100px;
 
     &:hover {
         background: #40a9ff;
