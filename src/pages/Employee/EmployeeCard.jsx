@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { useState } from "react";
-import {initialEmployees} from "../../utils/Employees"
+import { useEmployee } from "../../hooks/useEmployees";
 
 const EmployeeCardStyled = styled.div`
     width: 100%;
-    background: #fff;
+    height: 60px;
+    background: #ffff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     padding: 16px;
@@ -87,12 +87,7 @@ const SpanInactive = styled.span`
 `;
 
 const EmployeeCard =() => {
-
-    const [employees, setEmployees] = useState(initialEmployees);
-    
-        const handleDelete = (id) => {
-            setEmployees(employees.filter(emp => emp.id !== id));
-        };
+    const {employees, deleteEmployeeById} = useEmployee();
 
     return(
         <>
@@ -101,21 +96,21 @@ const EmployeeCard =() => {
             employees.map(emp => (
                 <EmployeeCardStyled key={emp.id}>
                     <div>
-                        <h4>{emp.name}</h4>
-                        <p>{emp.position}</p>
+                        <h4>{emp.nombre} {emp.apellido}</h4>
+                        <p>{emp.cargo}</p>
                     </div>
-                    <div><PSalary>{emp.salary}</PSalary></div>
-                    <div><p>{emp.date}</p></div>
+                    <div><PSalary>$ {emp.salario}</PSalary></div>
+                    <div><p>{emp.fecha}</p></div>
                     <div>
-                        {emp.status && <SpanActive>Activo</SpanActive>}
-                        {!emp.status && <SpanInactive>Inactivo</SpanInactive>}
+                        {emp.estado == "Activo" && <SpanActive>Activo</SpanActive>}
+                        {emp.estado == "Inactivo" && <SpanInactive>Inactivo</SpanInactive>}
                     </div>
                     
                     <ButtonGroup>
                         <EditButton>
                             Editar
                         </EditButton>
-                        <DeleteButton onClick={() => handleDelete(emp.id)}>
+                        <DeleteButton onClick={() => deleteEmployeeById(emp.id)}>
                             Eliminar
                         </DeleteButton>
                     </ButtonGroup>

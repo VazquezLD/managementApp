@@ -4,5 +4,5 @@ export const initialValues = {
     cargo: "",
     salario: 0,
     fecha: "",
-    estado: true
+    estado: "",
 };

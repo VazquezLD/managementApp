@@ -1,8 +1,10 @@
-import { Formik, Form, Field} from "formik";
+import { Formik, Form, Field, ErrorMessage} from "formik";
 import styled from "styled-components";
 import { EditButton } from "./EmployeeCard";
 import { useToggle } from "../../hooks/useToggle";
 import {initialValues} from "../../formik/initialValuesEmployee"
+import { validationSchemaEmployee } from "../../formik/validationSchemaEmployee";
+import { useEmployee } from "../../hooks/useEmployees";
 
 const HomeStyled = styled.div`
     width: 100%;
@@ -53,15 +55,28 @@ const FieldStyled = styled(Field)`
     color: #aaa;
   }
 `
+const ErrorMessageStyled = styled.span`
+    color: red;
+    font-weight: 600;
+    font-size: 15px;
+`
+
+const DivError = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 const EmployeeForm = () => {
     const {toggle} = useToggle();
+    const {addNewEmployee} = useEmployee();
 
     return(
         <HomeStyled>
             <Formik
             initialValues={initialValues}
+            validationSchema={validationSchemaEmployee}
             onSubmit={(values, {resetForm}) => {
+                addNewEmployee({ ...values, id: Date.now() })
                 console.log(values);
                 toggle();
                 resetForm();
@@ -70,27 +85,47 @@ const EmployeeForm = () => {
         <FormStyled>
             <div>
                 <label>Nombre</label>
-                <FieldStyled name="nombre" type="text" placeholder="Ingrese nombre"></FieldStyled>
+                <DivError>
+                    <FieldStyled name="nombre" type="text" placeholder="Ingrese nombre"></FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'nombre'}/>
+                </DivError>
+                
                 <label>Apellido</label>
-                <FieldStyled name="apellido" type="text" placeholder="Ingrese apellido"></FieldStyled>
+                <DivError>
+                    <FieldStyled name="apellido" type="text" placeholder="Ingrese apellido"></FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'apellido'}/>
+                </DivError>
             </div>
             <div>
                 <label>Cargo</label>
-                <FieldStyled name="cargo" type="text" placeholder="Ingrese cargo"></FieldStyled>
+                <DivError>
+                    <FieldStyled name="cargo" type="text" placeholder="Ingrese cargo"></FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'cargo'}/>
+                </DivError>
+
                 <label>Salario</label>
-                <FieldStyled name="salario" type="number" placeholder="Ingrese salario $"></FieldStyled>
+                <DivError>
+                    <FieldStyled name="salario" type="number" placeholder="Ingrese salario $"></FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'salario'}/>
+                </DivError>
             </div>
             <div>
                 <label>Fecha ingreso</label>
-                <FieldStyled name="fecha" type="date"></FieldStyled>
+                <DivError>
+                    <FieldStyled name="fecha" type="date"></FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'fecha'}/>
+                </DivError>
             </div>
             <div>
                 <label>Estado</label>
-                <FieldStyled name="estado" as="select">
-                    <option value="">Selecciona</option>
-                    <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>
-                </FieldStyled>
+                <DivError>
+                    <FieldStyled name='estado' component="select">
+                        <option value="">Selecciona estado</option>
+                        <option value="Activo">Activo</option>
+                        <option value ="Inactivo">Inactivo</option>
+                    </FieldStyled>
+                    <ErrorMessage component={ErrorMessageStyled} name={'estado'}/>
+                </DivError>
             </div>
             <div>
                 <EditButton type="submit">Guardar</EditButton>

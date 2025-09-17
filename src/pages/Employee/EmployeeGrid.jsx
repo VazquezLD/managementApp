@@ -8,7 +8,7 @@ const EmployeeGridStyled = styled.div`
     padding: 20px;
     background-color: #f9f9f9;
     width: 60%;
-    max-height: 60vh;
+    height: 60vh;
     overflow-y: scroll;
     border-top: 1px solid #ccc;
 `;

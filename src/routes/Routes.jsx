@@ -1,8 +1,9 @@
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Layout from '../components/Layout'
 import { Login } from '../pages/Login/Login'
-import Employee  from '../pages/Employee/Employee'
+import  Employee  from '../pages/Employee/Employee'
 import { Home } from '../pages/Home/Home'
+import  Services  from '../pages/Services/Services'
 
 
 const RoutesComponent = () => {
@@ -16,7 +17,7 @@ const RoutesComponent = () => {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/empleados" element={<Employee/>} />
                 <Route path="/graficos" element={<h1>Graficos</h1>} />
-                <Route path="/servicios" element={<h1>Servicios</h1>}/>
+                <Route path="/servicios" element={<Services/>}/>
                 <Route path="/profile" element={<h1>Perfil</h1>} />
             </Route>
         </Routes>
